@@ -2,7 +2,7 @@ import { useEffect, useRef, useCallback } from 'react'
 
 export function useWebSocket(networkId: string | undefined, onMessage: (data: any) => void) {
   const wsRef = useRef<WebSocket | null>(null)
-  const reconnectTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const reconnectTimer = useRef<ReturnType<typeof setTimeout> | undefined>(undefined)
 
   const connect = useCallback(() => {
     if (!networkId) return
